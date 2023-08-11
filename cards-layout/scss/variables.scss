@@ -1,0 +1,23 @@
+:root {
+    // Primary Colors
+    --#{$prefix}black: #000;
+    --#{$prefix}black-rgb: 0,0,0;
+    --#{$prefix}black-050505: #050505;
+    --#{$prefix}black-414141: #414141;
+    --#{$prefix}grey: #e0e0e0;
+
+    --#{$prefix}white: #fff;
+    --#{$prefix}white-rgb: 255,255,255;
+    --#{$prefix}white-f5f5f5: #f5f5f5;
+
+    --#{$prefix}blue: #1b9bdd;
+    --#{$prefix}blue-dark: #0573ac;
+    --#{$prefix}red: #a30409;
+
+    // Fonts
+    --#{$prefix}font-roboto-condensed: 'Roboto Condensed', sans-serif;
+    --#{$prefix}font-roboto: 'Roboto', sans-serif;
+
+    // Shadows
+    --#{$prefix}shadow-5: 0 0 5px rgba(var(--#{$prefix}black-rgb), 0.1);
+}

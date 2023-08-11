@@ -1,0 +1,30 @@
+body {
+    font-family: var(--#{$prefix}font-roboto);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--#{$prefix}black-414141);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--#{$prefix}font-roboto-condensed);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.2;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.6rem;
+}
+h3 {
+    font-size: 2.2rem;
+}
+h4 {
+    font-size: 1.8rem;
+}
+h5 {
+    font-size: 1.4rem;
+}
+h6 {
+    font-size: 1rem;
+}

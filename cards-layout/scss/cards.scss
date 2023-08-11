@@ -1,0 +1,78 @@
+.cards-wrap {
+    background-color: var(--#{$prefix}white-f5f5f5);
+    counter-reset: card-counter;
+    .card {
+        box-shadow: var(--#{$prefix}shadow-5); 
+        cursor: default;
+        .card-img {
+            height: 200px;
+            background-color: var(--#{$prefix}black-414141);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            counter-increment: card-counter;
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:before {
+                content: counter(card-counter);
+                font-size: 1.5rem;
+                color: var(--#{$prefix}white);
+                width: 35px;
+                height: 35px;
+                text-align: center;
+                background-color: var(--#{$prefix}red);
+                border-radius: 4px 0 10px 0;
+                z-index: 2;
+            }
+            &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                background-color: rgba(var(--#{$prefix}black-rgb), 0.65);
+                z-index: 1;
+                opacity: 0;
+                transition: all .3s ease;
+            }
+            > h4 {
+                top: 100%;
+                transition: all .3s ease;
+                opacity: 0;
+                z-index: 3;
+            }
+            > img {
+                transition: all .3s ease-in;
+                transform: scale(1) rotate(0);
+            }
+        }
+        .card-info {
+            height: calc(100% - 200px);
+        }
+        h5 {color: var(--#{$prefix}red);}
+        &:hover {
+            .card-img {
+                > img {transform: scale(1.2) rotate(-2.5deg);}
+                > h4 {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    opacity: 1;
+                }
+                &:after {opacity: 1;}
+            }
+        }
+        .btn {
+            --app-btn-bg: var(--#{$prefix}blue);
+            --app-btn-border-color: var(--#{$prefix}blue);
+            --app-btn-padding-y: 6px;
+            --app-btn-padding-x: 20px;
+            --app-btn-font-family: var(--#{$prefix}font-roboto-condensed);
+            --app-btn-border-radius: 4px;
+            &:hover {
+                --app-btn-hover-bg: var(--#{$prefix}blue-dark); 
+                --app-btn-hover-border-color: var(--#{$prefix}blue-dark);
+            }
+        }
+    }
+}

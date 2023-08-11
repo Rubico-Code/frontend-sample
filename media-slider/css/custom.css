@@ -1,0 +1,258 @@
+@import './variables.css';
+
+/* -- Global Styling -- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--family-inter);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+}
+a, button {
+    transition: all .3s ease;
+    text-decoration: none;
+    outline: none;
+}
+
+/* -- Global Typography -- */
+[class^="module_"] {
+    position: relative;
+    padding: var(--module-spacing) 15px;
+}
+p {
+    margin: 0 0 var(--text-spacing);
+}
+p:empty {
+    display: none;
+}
+p:last-of-type {
+    margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--text-spacing--l);
+    margin-top: 0;
+    font-weight: normal;
+    font-family: var(--family-roboto);
+}
+h1 {
+    font-size: 40px;
+    line-height: 44px;
+}
+h2 {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+/* -- BTNs -- */
+.btn-icon {
+    font-size: 18px;
+    line-height: 15px;
+    color: var(--black);
+    position: relative;
+    min-height: 56px;
+}
+.btn-txt {
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--magenta);
+    width: 56px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+.btn-rounded {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    padding: 10px;
+    box-shadow: var(--shadow-btn);
+    position: absolute;
+    left: 0;
+    transition: all .3s ease;
+}
+.btn-icon:hover .btn-txt {
+    opacity: 1;
+    transition-delay: .1s;
+    width: auto;
+    margin-right: 68px;
+}
+.btn-icon:hover .btn-rounded {
+    left: calc(100% - 56px);
+}
+.btn-icon i {
+    color: var(--magenta);
+}
+
+/* -- Grids/Utilities -- */
+.grid-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1240px;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+.caps {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--text-spacing--xl);
+    font-weight: 600;
+}
+.text-plum {
+    color: var(--plum);
+}
+.object-fit-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.inline-flex-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -- Block Media (Slider) -- */
+.module-head h1 {
+    padding: 0 25px 20px 0;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+}
+.generic-slider {
+    background-color: var(--grey-1);
+    margin-top: var(--module-spacing);
+}
+.generic-media {
+    background-color: var(--plum);
+    color: var(--white);
+}
+.generic-desc {
+    padding: var(--module-spacing);
+}
+
+/* -- Media Break-Points -- */
+@media (min-width: 768px) {
+    .grid-wrap {
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        grid-column-gap: var(--gutter);
+    }
+    .module-head {
+        grid-column: span 12;
+        display: flex;
+        align-items: center;
+    }
+    .module-head h1 {
+        padding: 25px 80px 25px 0;
+        margin-right: calc(var(--module-spacing--s) * 2);
+        border-right: 1px solid var(--grey-5);
+    }
+    .module-head p {
+        max-width: 450px;
+    }
+    .generic-slider {
+        grid-column: span 12;
+    }
+    .generic-info {
+        display: flex !important;
+    }
+    .generic-desc {
+        width: 50%;
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .generic-media {
+        width: 50%;
+        order: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+    }
+    h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .generic-slider {
+        margin-top: calc(var(--module-spacing) / 2);
+    }
+    .generic-desc {
+        width: 60%;
+    }
+    .generic-media {
+        width: 40%;
+    }
+    .btn-icon {
+        font-size: 22px;
+        line-height: 20px;
+    }
+    .btn-rounded {
+        width: 56px;
+        height: 56px;
+    }
+    .generic-desc .btn-icon {
+        margin-top: var(--text-spacing--xl);
+    }
+}
+
+/* -- Slick Base/Customized -- */
+.slick-dots {
+    bottom: -50px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+.slick-dots li {
+    margin: 7px;
+}
+.slick-dots li button {
+    border: 1px solid var(--grey-6);
+    background: transparent;
+    display: block;
+    height: 12px;
+    width: 12px;
+    color: transparent;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+}
+
+.slick-dots li button:before {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+}
+
+.slick-dots li.slick-active button:before {
+    background-color: var(--grey-6);
+}
